@@ -1,5 +1,5 @@
-import './App.css'
-import Infos from './components/info'
+import './App.css';
+import Infos from './components/info';
 
 function App() {
   return (
@@ -7,4 +7,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

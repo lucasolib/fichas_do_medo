@@ -1,7 +1,12 @@
+import '../css/info.css';
+
 function Infos() {
   return (
     <>
       <article className="infos">
+      <h1 className="tituloInfos">
+        Informações Gerais:
+      </h1>
         <label>
           Nome do jogador:
           <input name="jogador" className="inputText" type="text" />
