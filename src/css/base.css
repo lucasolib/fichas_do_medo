@@ -1,0 +1,48 @@
+.base {
+  background-color: #292235;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 100px;
+}
+
+.tituloBase {
+  font-size: 28px;
+  color: #ffffff;
+  text-align: center;
+  display: inline-block;
+}
+
+.iconBase {
+  width: fit-content; /* Provavelmnete vai ter que ajustar dps */
+  height: fit-content;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  margin-bottom: 15px;
+  width: 300px;
+}
+
+.barraResponsiva {
+  width: 300px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #c23c3c;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.inputBase {
+  height: 100%;
+  border-radius: 10px;
+  background-color: #791f1f;
+  text-align: center;
+  width: 100%;
+}
