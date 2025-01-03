@@ -42,10 +42,11 @@ function Base() {
           return (
           <label key={nome}>
             {nome.charAt(0).toUpperCase() + nome.slice(1)}
-            <div className='barraResponsiva'>
+            <div className='barraResponsiva' id={nome+'bg'}>
               <input
                 type='text'
                 name={nome}
+                id={nome}
                 className='inputBase'
                 defaultValue={state[nome]}
                 onBlur={handleChange}
