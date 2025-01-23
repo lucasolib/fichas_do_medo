@@ -1,11 +1,29 @@
-import { useNavigate } from 'react-router-dom';
 import '../css/login.css';
+import { useNavigate, Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function Login () {
   const navigate = useNavigate();
 
+  const [state, setState] = useState({
+    usuario: '',
+    senha: '',
+  });
+
   function entrar () {
-    navigate('/personagem');
+    if (state.usuario == 'lucasoli' || state.usuario == 'lucasolibatista@gmail.com') {
+      if (state.senha == 'Ll193728#'){
+        navigate('/personagem');
+      }
+    }
+  };
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
+    const { name, value } = event.target;
+    setState({
+      ...state,
+      [name]: value,
+    });
   }
 
   return (
@@ -13,15 +31,33 @@ function Login () {
       <main>
         <label htmlFor='usuario'>
           Usuário ou email:
-          <input type='text' name='usuario' className='usuario'/>
+          <input
+            type='text'
+            name='usuario'
+            className='usuario'
+            value={state.usuario}
+            onChange={handleChange}
+            placeholder='Insira seu usuário ou email'
+          />
         </label>
         <label htmlFor='senha'>
           Senha:
-          <input type='text' name='senha' className='senha'/>
+          <input
+            type='text'
+            name='senha'
+            className='senha'
+            value={state.senha}
+            onChange={handleChange}
+            placeholder='Insira sua senha'
+          />
         </label>
         <button className='entrar' onClick={entrar}>Entrar</button>
-        <button className='esqueceuSenha'>Esqueci minha senha</button>
-        <button className='criarConta'>Criar uma conta</button>
+        <button className='esqueceuSenha'>
+          <Link to='/recuperar-senha'>Esqueci minha senha</Link>
+        </button>
+        <button className='criarConta'>
+          <Link to='/criar-conta'>Criar uma conta</Link>
+        </button>
       </main>
     </>
   )
