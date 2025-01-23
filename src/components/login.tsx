@@ -1,9 +1,28 @@
+import { useNavigate } from 'react-router-dom';
 import '../css/login.css';
 
-function Login() {
+function Login () {
+  const navigate = useNavigate();
+
+  function entrar () {
+    navigate('/personagem');
+  }
+
   return (
     <>
-      <h1>LOGIN</h1>
+      <main>
+        <label htmlFor='usuario'>
+          Usuário ou email:
+          <input type='text' name='usuario' className='usuario'/>
+        </label>
+        <label htmlFor='senha'>
+          Senha:
+          <input type='text' name='senha' className='senha'/>
+        </label>
+        <button className='entrar' onClick={entrar}>Entrar</button>
+        <button className='esqueceuSenha'>Esqueci minha senha</button>
+        <button className='criarConta'>Criar uma conta</button>
+      </main>
     </>
   )
 }
