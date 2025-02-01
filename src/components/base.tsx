@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import BarraNav from './barraNav';
 import '../css/base.css';
 
 // TO DO: Criar um elemento de texto que sobreponha os inputs para aparecer sempre centralizado nas barras de vida
@@ -33,6 +34,7 @@ function Base() {
 
   return (
     <article className='base'>
+      <BarraNav />
       <h1 className='tituloBase'>
         Status do Personagem:
       </h1>
