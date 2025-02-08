@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.criarConta {
+  position: absolute;
+  top: -14px;
+  right: -120px;
+  width: 100px;
+  height: 30px;
+  margin: 10px;
+}
+
+.textoCriarConta {
+  position: absolute;
+  top: 23px;
+  right: 150px;
+  font-size: 14px;
+  font-family: 'clearSans';
+}
+
+.titulo {
+  position: absolute;
+  top: -5px;
+  left: 30px;
+  font-size: 32px;
+  color: #646153;
+  text-shadow:
+    0 0 10px #646153,
+    0 0 15px #646153;
+  font-family: 'gagalin';
+  font-weight: normal;
+  font-style: normal;
+}
+
+.cardLogin {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #757575;
+  border-radius: 5%;
+  height: 40vh;
+  width: 17vw;
+}
+
+.inputInfo {
+  display: flex;
+  font-size: 18px;
+  font-family: 'clearSans';
+  align-items: start;
+  padding-left: 25px;
+}
+
+.entrar {
+  cursor: pointer;
+  width: 50%;
+  height: 10%;
+  margin: 10px;
+  font-family: 'openSansBold';
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.esqueceuSenha {
+  display: flex;
+  background-color: inherit;
+  border: none;
+  align-self: start;
+  margin: -10px 0 20px 30px;
+}
+
+.criarConta, .entrar {
+  background-color: #BA0E2A;
+  color: white;
+  border-radius: 20px;
+  border-style: hidden;
+  transition: 0.3s ease-in-out;
+}
+
+.criarConta:hover, .entrar:hover {
+  background-color: #610f1d;
+  transform: scale(1.1);
+}
+
+#botaoCriarConta {
+  text-decoration: none;
+  color: white;
+  font-family: 'openSansBold';
+  font-size: 14px;
+}
+
+.usuario, .senha {
+  align-self: flex-start;
+  width: 90%;
+  border-radius: 25px;
+  text-align: left;
+  height: 3.5vh;
+  padding-left: 10px;
+}
+
+#botaoEsqueceuSenha {
+  text-decoration: none;
+  color: white;
+  font-family: 'clearSans';
+  font-size: 14px;
+}
+
+#bemVindo {
+  display: flex;
+  font-family: 'clearSansBold';
+  font-size: 18px;
+  font-weight: bold;
+  align-self: start;
+  margin: 20px 0 20px 35px;
+}
+
+.checkbox {
+  display: flex;
+}
+
+.lembrar {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+  position: absolute;
+}
+
+.lembrarInfo {
+  position: relative;
+  cursor: pointer;
+  font-family: 'clearSans';
+  font-size: 18px;
+  align-items: start;
+  padding-left: 23%;
+}
+
+.lembrarInfo::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.5em;
+  width: 1.5em;
+  background: #FFF;
+  border: 1px solid #999;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(0, -50%);
+  border-radius: 100%;
+}
+
+.lembrarInfo::after {
+  content: "\2713";
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  font-size: 1em;
+  color: #FFF;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.lembrarInfo:focus::before, .lembrarInfo:hover::before {
+  background: #DDD;
+}
+
+.lembrar:checked + .lembrarInfo::before {
+  background: #ff7212;
+  border-color: #ff7212;
+}
+
+.lembrar:checked + .lembrarInfo::after {
+  opacity: 1;
+}
