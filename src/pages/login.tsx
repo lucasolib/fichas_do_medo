@@ -13,7 +13,7 @@ function Login () {
   function entrar () {
     if (state.usuario == 'lucasoli' || state.usuario == 'lucasolibatista@gmail.com') {
       if (state.senha == 'Ll193728#'){
-        navigate('/personagem');
+        navigate('/campanhas');
       }
     }
   };
