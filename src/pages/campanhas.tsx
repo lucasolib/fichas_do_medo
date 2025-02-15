@@ -16,26 +16,33 @@ function Campanhas () {
 
   const carrossel = useRef<HTMLDivElement>(null);
 
-  function getCampanhas () {
-    setLoading(true);
-    setTimeout(() => {
-      setCampanhas(CAMPANHAS);
-      setLoading(false);
-    }, 1000)
+  function getCampanhas ():Promise<void> {
+    return new Promise((resolve) => {
+      setLoading(true);
+      setTimeout(() => {
+        setCampanhas(CAMPANHAS);
+        setLoading(false);
+        resolve();
+      }, 1000)
+    })
   }
 
   useEffect(() => {
-    getCampanhas();
-    if (carrossel.current){
-      const scrollWidth = carrossel.current.scrollWidth;
-      const offsetWidth = carrossel.current.offsetWidth;
-      setWidthCarrossel(scrollWidth - offsetWidth);
+    const fetchData = async () => {
+      await getCampanhas();
+      if (carrossel.current){
+        const scrollWidth = carrossel.current.scrollWidth;
+        const offsetWidth = carrossel.current.offsetWidth;
+        setWidthCarrossel(scrollWidth - offsetWidth);
+      }
     }
+    fetchData();
   }, [])
 
   return (
     <>
       <main>
+        <h2 className='paginaCampanha'>Campanhas</h2>
         <motion.div
           className='carrosselCampanha' ref={carrossel}>
           { loading ? (
@@ -49,17 +56,21 @@ function Campanhas () {
                     alt='Placeholder para imagem da campanha'
                     className='fotoCampanha'
                   />
-                  <h1 className='tituloCampanha'>{campanha.nome}</h1>
+                  <div className='fundoNome'>
+                    <h1 className='tituloCampanha'>{campanha.nome}</h1>
+                  </div>
                   <button className='acessarCampanha'> Acessar </button>
                 </motion.article>
                 ))}
                 <motion.article className='cardCampanha'>
                   <img
-                    src='../public/placeholder.png'
+                    src='../public/simboloMais.png'
                     alt='Placeholder para imagem de criar campanha'
                     className='fotoCampanha'
                   />
-                  <h1 className='tituloCampanha'>Nova campanha</h1>
+                  <div className='fundoNome'>
+                    <h1 className='tituloCampanha'>Nova campanha</h1>
+                  </div>
                   <button className='acessarCampanha'> Criar </button>
                 </motion.article>
               </motion.div>
