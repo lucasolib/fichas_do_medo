@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.paginaCampanha {
+  font-family: 'gagalin';
+  font-size: 32px;
+  margin-left: 112px;
+  color: #ceb274;
+}
+
+.carrosselCampanha {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100vw;
+  max-width: 93vw;
+  margin: 50px;
+  justify-content: start;
+}
+
+.carrosselInterno {
+  display: flex;
+  flex-direction: row;
+}
+
+.cardCampanha {
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-color: #757575;
+  border-radius: 5%;
+  height: 360px;
+  width: 280px;
+  margin: 50px;
+  flex-shrink: 0;
+}
+
+.fotoCampanha {
+  width: 210px;
+  height: 210px;
+  object-fit: cover;
+  object-position: center;
+  /* object-fit: contain; */
+  justify-self: flex-start;
+  border-radius:25px;
+}
+
+.tituloCampanha {
+  font-size: 15px;
+  font-family: 'clearSans';
+}
+
+.acessarCampanha {
+  cursor: pointer;
+  width: 50%;
+  height: 10%;
+  margin: 10px;
+  font-family: 'openSansBold';
+  font-size: 14px;
+  font-weight: bolder;
+  text-decoration: none;
+  align-content: center;
+  background-color: #BA0E2A;
+  color: white;
+  border-radius: 20px;
+  border-style: hidden;
+  transition: 0.3s ease-in-out;
+}
+
+.acessarCampanha:hover {
+  background-color: #610f1d;
+  transform: scale(1.1);
+}
+
+.fundoNome {
+  background-color: #121111;
+  border-radius: 25px;
+  width: 80%;
+  margin-top: 15px;
+}
+
+.barraExterna {
+  display: flex;
+  background-color: #B9B7B6;
+  width: 85%;
+  height: 30px;
+  align-self: center;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.barraInterna {
+  background-color: #5e3474;
+  height: 30px;
+  width: 100px;
+  border-radius: 25px;
+}
