@@ -46,6 +46,7 @@ main {
   height: 360px;
   width: 280px;
   margin: 50px;
+  flex-shrink: 0;
 }
 
 .fotoCampanha {
@@ -71,6 +72,8 @@ main {
   font-family: 'openSansBold';
   font-size: 14px;
   font-weight: bolder;
+  text-decoration: none;
+  align-content: center;
   background-color: #BA0E2A;
   color: white;
   border-radius: 20px;
@@ -88,4 +91,21 @@ main {
   border-radius: 25px;
   width: 80%;
   margin-top: 15px;
+}
+
+.barraExterna {
+  display: flex;
+  background-color: #B9B7B6;
+  width: 85%;
+  height: 30px;
+  align-self: center;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.barraInterna {
+  background-color: #5e3474;
+  height: 30px;
+  width: 100px;
+  border-radius: 25px;
 }

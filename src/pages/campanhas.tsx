@@ -1,7 +1,8 @@
 import '../css/campanhas.css';
 import { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, PanInfo } from 'framer-motion';
 import CAMPANHAS from '../mocks/mockCampanhas'; // APENAS DURANTE O DESENVOLVIMENTO
+import { Link } from 'react-router-dom';
 
 function Campanhas () {
   interface Campanha {
@@ -13,8 +14,11 @@ function Campanhas () {
   const [campanhas, setCampanhas] = useState<Campanha[]>([]);
   const [loading, setLoading] = useState(false);
   const [widthCarrossel, setWidthCarrossel] = useState(0)
+  const [widthBarra, setWidthBarra] = useState(0)
+  const [posicaoDrag, setPosicaoDrag] = useState(0);
 
   const carrossel = useRef<HTMLDivElement>(null);
+  const barra = useRef<HTMLDivElement>(null);
 
   function getCampanhas ():Promise<void> {
     return new Promise((resolve) => {
@@ -30,14 +34,28 @@ function Campanhas () {
   useEffect(() => {
     const fetchData = async () => {
       await getCampanhas();
-      if (carrossel.current){
-        const scrollWidth = carrossel.current.scrollWidth;
-        const offsetWidth = carrossel.current.offsetWidth;
-        setWidthCarrossel(scrollWidth - offsetWidth);
-      }
+      setTimeout(() => {
+        if (carrossel.current) {
+          const scrollWidth = carrossel.current.scrollWidth;
+          const offsetWidth = carrossel.current.offsetWidth;
+          setWidthCarrossel(scrollWidth - offsetWidth);
+        }
+        if (barra.current) {
+          const offsetBarra = barra.current.offsetWidth;
+          const larguraBarraInterna = offsetBarra * 0.1;
+          if (barra.current.firstChild) {
+            (barra.current.firstChild as HTMLDivElement).style.width = `${larguraBarraInterna}px`;
+          }
+          setWidthBarra(offsetBarra - larguraBarraInterna);
+        }
+      }, 100);
     }
     fetchData();
-  }, [])
+  }, [campanhas])
+
+  function handleDragBarra (_e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) {
+    setPosicaoDrag(-info.point.x * (widthCarrossel / widthBarra));
+  }
 
   return (
     <>
@@ -48,7 +66,11 @@ function Campanhas () {
           { loading ? (
             <h1>CARREGANDO</h1>
           ) : (
-            <motion.div className='carrosselInterno' drag='x' dragConstraints={{ right: 0, left: -widthCarrossel }}>
+            <motion.div
+              className='carrosselInterno'
+              dragConstraints={{ right: 0, left: -widthCarrossel }}
+              style={{ x: posicaoDrag }}
+            >
               {campanhas.map((campanha) => (
                 <motion.article className='cardCampanha' key={campanha.id}>
                   <img
@@ -59,7 +81,7 @@ function Campanhas () {
                   <div className='fundoNome'>
                     <h1 className='tituloCampanha'>{campanha.nome}</h1>
                   </div>
-                  <button className='acessarCampanha'> Acessar </button>
+                  <Link className='acessarCampanha' to={`campanha/${campanha.nome}`}> Acessar </Link>
                 </motion.article>
                 ))}
                 <motion.article className='cardCampanha'>
@@ -71,10 +93,22 @@ function Campanhas () {
                   <div className='fundoNome'>
                     <h1 className='tituloCampanha'>Nova campanha</h1>
                   </div>
-                  <button className='acessarCampanha'> Criar </button>
+                  <Link to='campanhas/criar' className='acessarCampanha'>
+                      Criar
+                  </Link>
                 </motion.article>
               </motion.div>
           )}
+        </motion.div>
+        <motion.div className='barraExterna' ref={barra}>
+          <motion.div
+            className='barraInterna'
+            drag='x'
+            dragConstraints={{ right: widthBarra, left: 0 }}
+            style={{ x: posicaoDrag * (widthBarra / widthCarrossel) }}
+            onDrag={handleDragBarra}
+            dragMomentum={false}
+          />
         </motion.div>
       </main>
     </>
