@@ -81,7 +81,7 @@ function Campanhas () {
                   <div className='fundoNome'>
                     <h1 className='tituloCampanha'>{campanha.nome}</h1>
                   </div>
-                  <Link className='acessarCampanha' to={`campanha/${campanha.nome}`}> Acessar </Link>
+                  <Link className='acessarCampanha' to={`${campanha.nome}`}> Acessar </Link>
                 </motion.article>
                 ))}
                 <motion.article className='cardCampanha'>
