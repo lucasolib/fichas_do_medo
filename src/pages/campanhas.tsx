@@ -83,7 +83,7 @@ function Campanhas () {
                     <div className='fundoNome'>
                       <h1 className='tituloCampanha'>{campanha.nome}</h1>
                     </div>
-                    <Link className='acessarCampanha' to={`${nomeCampanha}`}> Acessar </Link>
+                    <Link className='acessarCampanha' to={`${nomeCampanha}`}  state={{ name: nomeCampanha }} > Acessar </Link>
                   </motion.article>
                   );
                 })}
