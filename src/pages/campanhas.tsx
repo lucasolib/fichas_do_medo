@@ -72,7 +72,7 @@ function Campanhas () {
               style={{ x: posicaoDrag }}
             >
               {campanhas.map((campanha) =>  {
-                const nomeCampanha = campanha.nome.replace(/\s+/g, '-')
+                const nomeCampanha = campanha.nome.replace(/\s+/g, '-').toLowerCase();
                   return (
                   <motion.article className='cardCampanha' key={campanha.id}>
                     <img

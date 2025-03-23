@@ -54,7 +54,6 @@ main {
   height: 210px;
   object-fit: cover;
   object-position: center;
-  /* object-fit: contain; */
   justify-self: flex-start;
   border-radius:25px;
 }
