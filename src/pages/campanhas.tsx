@@ -1,7 +1,6 @@
 import '../css/campanhas.css';
 import { useEffect, useState, useRef } from 'react';
 import { motion, PanInfo } from 'framer-motion';
-import CAMPANHAS from '../mocks/mockCampanhas'; // APENAS DURANTE O DESENVOLVIMENTO
 import { Link } from 'react-router-dom';
 
 function Campanhas () {
@@ -20,20 +19,31 @@ function Campanhas () {
   const carrossel = useRef<HTMLDivElement>(null);
   const barra = useRef<HTMLDivElement>(null);
 
-  function getCampanhas ():Promise<void> {
-    return new Promise((resolve) => {
-      setLoading(true);
-      setTimeout(() => {
-        setCampanhas(CAMPANHAS);
+  async function getCampanhas () {
+    const apiUrl = 'http://localhost:3001/campanhas/';
+    setLoading(true);
+    return fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro na requisição');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setCampanhas(data);
         setLoading(false);
-        resolve();
-      }, 1000)
-    })
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setLoading(false);
+      });
   }
 
   useEffect(() => {
     const fetchData = async () => {
       await getCampanhas();
+      console.log(campanhas);
+      setLoading(false);
       setTimeout(() => {
         if (carrossel.current) {
           const scrollWidth = carrossel.current.scrollWidth;
@@ -51,7 +61,7 @@ function Campanhas () {
       }, 100);
     }
     fetchData();
-  }, [campanhas])
+  }, [])
 
   function handleDragBarra (_e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) {
     setPosicaoDrag(-info.point.x * (widthCarrossel / widthBarra));
