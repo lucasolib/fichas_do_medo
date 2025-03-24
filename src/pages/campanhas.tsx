@@ -42,7 +42,6 @@ function Campanhas () {
   useEffect(() => {
     const fetchData = async () => {
       await getCampanhas();
-      console.log(campanhas);
       setLoading(false);
       setTimeout(() => {
         if (carrossel.current) {
