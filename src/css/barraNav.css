@@ -1,12 +1,34 @@
-  .navBar {
-    background-color: #646153;
-    width: 100%;
-  }
+.navBar {
+  position: absolute;
+  background-color: #646153;
+  width: 100%;
+}
 
-  .title {
+.title {
+  font-family: 'gagalin';
+  font-size: 32px;
+  margin-left: 112px;
+  color: #ffffff;
+}
 
-  }
+.buttonNav {
+  cursor: pointer;
+  width: 50%;
+  height: 10%;
+  margin: 10px;
+  font-family: 'openSansBold';
+  font-size: 14px;
+  font-weight: bolder;
+  text-decoration: none;
+  align-content: center;
+  background-color: #BA0E2A;
+  color: white;
+  border-radius: 20px;
+  border-style: hidden;
+  transition: 0.3s ease-in-out;
+}
 
-  .buttonNav {
-
-  }
+.buttonNav:hover {
+  background-color: #610f1d;
+  transform: scale(1.1);
+}
