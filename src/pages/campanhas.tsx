@@ -84,19 +84,22 @@ function Campanhas () {
               dragConstraints={{ right: 0, left: -widthCarrossel }}
               style={{ x: posicaoDrag }}
             >
-              {campanhas.map((campanha) => (
-                <motion.article className='cardCampanha' key={campanha.id}>
-                  <img
-                    src={campanha.imagem}
-                    alt='Placeholder para imagem da campanha'
-                    className='fotoCampanha'
-                  />
-                  <div className='fundoNome'>
-                    <h1 className='tituloCampanha'>{campanha.nome}</h1>
-                  </div>
-                  <Link className='acessarCampanha' to={`campanha/${campanha.nome}`}> Acessar </Link>
-                </motion.article>
-                ))}
+              {campanhas.map((campanha) =>  {
+                const nomeCampanha = campanha.nome.replace(/\s+/g, '-').toLowerCase();
+                  return (
+                  <motion.article className='cardCampanha' key={campanha.id}>
+                    <img
+                      src={campanha.imagem}
+                      alt='Placeholder para imagem da campanha'
+                      className='fotoCampanha'
+                    />
+                    <div className='fundoNome'>
+                      <h1 className='tituloCampanha'>{campanha.nome}</h1>
+                    </div>
+                    <Link className='acessarCampanha' to={`${nomeCampanha}`}  state={{ name: nomeCampanha }} > Acessar </Link>
+                  </motion.article>
+                  );
+                })}
                 <motion.article className='cardCampanha'>
                   <img
                     src='../public/simboloMais.png'
