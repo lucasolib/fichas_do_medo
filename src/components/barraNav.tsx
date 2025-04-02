@@ -6,9 +6,11 @@ function BarraNav() {
     <>
       <nav className='navBar'>
         <h1 className='title'>Ordem Paranormal</h1>
-        <NavLink to="/" className='buttonNav'>Sair</NavLink>
-        <NavLink to="/perfil" className='buttonNav'>Perfil</NavLink>
-        <NavLink to="/campanhas" className='buttonNav'>Campanhas</NavLink>
+        <div className='navLinks'>
+          <NavLink to="/perfil" className='buttonNav'>Perfil</NavLink>
+          <NavLink to="/campanhas" className='buttonNav'>Campanhas</NavLink>
+        </div>
+        <NavLink to="/" className='buttonNav' id='sair'>Sair</NavLink>
       </nav>  
     </>
   )
