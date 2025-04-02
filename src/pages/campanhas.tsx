@@ -2,6 +2,7 @@ import '../css/campanhas.css';
 import { useEffect, useState, useRef } from 'react';
 import { motion, PanInfo } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import BarraNav from '../components/barraNav';
 
 function Campanhas () {
   interface Campanha {
@@ -69,6 +70,9 @@ function Campanhas () {
   return (
     <>
       <main>
+        <header>
+          <BarraNav />
+        </header>
         <h2 className='paginaCampanha'>Campanhas</h2>
         <motion.div
           className='carrosselCampanha' ref={carrossel}>
