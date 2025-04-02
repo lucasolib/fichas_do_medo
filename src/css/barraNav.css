@@ -2,6 +2,8 @@
   position: absolute;
   background-color: #646153;
   width: 100%;
+  left: 0;
+  top: 0;
 }
 
 .title {

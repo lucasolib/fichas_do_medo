@@ -1,6 +1,7 @@
 import '../css/login.css';
 import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
+import BarraNav from './barraNav';
 
 function Login () {
   const navigate = useNavigate();
@@ -28,6 +29,9 @@ function Login () {
 
   return (
     <>
+      <header>
+        <BarraNav />
+      </header>
       <main>
         <label htmlFor='usuario'>
           Usuário ou email:
