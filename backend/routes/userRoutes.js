@@ -3,6 +3,16 @@ import userDB from '../database/userDB.js';
 
 const router = Router();
 
+router.get('/getAll', async (req, res) => {
+  try {
+    const [result] = await userDB.findAll();
+    res.status(200).json(result);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: err.sqlMessage });
+  }
+})
+
 router.get('/login', async (req, res) => {
   const userLogin = req.body
   try {

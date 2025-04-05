@@ -1,5 +1,9 @@
 import connection from './connection.js';
 
+const findAll = () => connection.execute(
+  `SELECT * FROM user`,
+);
+
 const find = (user) => connection.execute(
     `SELECT * FROM user WHERE username = ?`,
     [user.username],
@@ -12,6 +16,7 @@ const insert = (user) => connection.execute(
 );
 
 export default {
+  findAll,
   find,
   insert,
 };
