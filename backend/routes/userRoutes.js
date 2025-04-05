@@ -35,4 +35,36 @@ router.post('/create', async (req, res) => {
   }
 });
 
+router.put('/update/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = req.body;
+    const [result] = await userDB.update(user, id);
+    if (result.affectedRows > 0) {
+      res.status(200).json({ message: `Usuário de id ${id} atualizado com sucesso` });
+    } else {
+      res.status(404).json({ message: 'Usuário não encontrado' });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: err.sqlMessage })
+  }
+});
+
+router.delete('/delete/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const [result] = await userDB.remove(id);
+    if (result.affectedRows > 0) {
+      res.status(200).json({ message: `Usuário de id ${id} excluído com sucesso` });
+    } else {
+      res.status(404).json({ message: 'Usuário não encontrado' });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: err.sqlMessage })
+  }
+});
+
+
 export default router;
