@@ -1,7 +1,8 @@
 import connection from './connection.js';
 
-const find = () => connection.execute(
-    `SELECT * FROM campanhas WHERE `
+const find = (user) => connection.execute(
+    `SELECT * FROM user WHERE username = ?`,
+    [user.username],
   );
 
 const insert = (user) => connection.execute(

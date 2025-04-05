@@ -3,9 +3,10 @@ import userDB from '../database/userDB.js';
 
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.get('/login', async (req, res) => {
+  const userLogin = req.body
   try {
-    const [result] = await userDB.find();
+    const [result] = await userDB.find(userLogin);
     res.status(200).json(result);
   } catch (err) {
     console.log(err);
