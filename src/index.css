@@ -1,34 +1,34 @@
 @font-face {
   font-family: 'gagalin';
-  src: url('..//public/fontes/gagalin/Gagalin-Regular.otf') format('opentype');
+  src: url('/fontes/gagalin/Gagalin-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'openSans';
-  src: url('..//public/fontes/openSans/OpenSans-Regular.ttf') format('truetype');
+  src: url('/fontes/openSans/OpenSans-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'openSansBold';
-  src: url('..//public/fontes/openSans/OpenSans-Bold.ttf') format('truetype');
+  src: url('/fontes/openSans/OpenSans-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'clearSans';
-  src: url('..//public/fontes/clearSans/ClearSans-Regular.ttf') format('truetype');
+  src: url('/fontes/clearSans/ClearSans-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'clearSansBold';
-  src: url('..//public/fontes/clearSans/ClearSans-Bold.ttf') format('truetype');
+  src: url('/fontes/clearSans/ClearSans-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
